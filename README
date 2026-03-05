@@ -1,0 +1,11 @@
+# JobFinder
+
+Projet **JobFinder**.
+
+JobFinder est une application permettant de proposer des recherches de jobs contextualisées selon le profil utilisateur.  
+L'objectif est d'envoyer directement des offres adaptées (par exemple junior vs expert), au lieu de proposer des postes non pertinents.
+
+Le projet est composé de :
+
+- **Une application frontend en Angular**
+- **Un design UI réalisé avec Tailwind CSS**
