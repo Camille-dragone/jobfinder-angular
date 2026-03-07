@@ -1,0 +1,78 @@
+<div class="m-5 overflow-x-auto bg-white/10 backdrop-blur-xl border border-white/10 shadow-xl rounded-md">
+  <table class="table text-white/70">
+    <thead>
+      <tr class="text-white font-title">
+        <th>Entreprise</th>
+        <th>Poste</th>
+        <th>Localisation</th>
+        <th class="text-center">Détails</th>
+        <th class="text-center">Sauvegarder</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr
+        *ngFor="let job of bestJobs"
+        class="hover:bg-white/10 transition"
+      >
+        <td>
+          <div class="flex items-center gap-3">
+            <div class="avatar">
+              <div class="mask mask-squircle w-10 h-10 bg-white flex items-center justify-center overflow-hidden">
+                <img
+                  *ngIf="job.job.company_logo"
+                  [src]="job.job.company_logo"
+                  [alt]="job.job.company"
+                  class="w-full h-full object-contain"
+                />
+                <span *ngIf="!job.job.company_logo" class="text-xs text-white/60">
+                  logo
+                </span>
+              </div>
+            </div>
+
+            <div class="font-bold">
+              {{ job.job.company }}
+            </div>
+          </div>
+        </td>
+
+        <td>
+          {{ job.job.title }}
+        </td>
+        <td>
+          {{ job.job.location }}
+        </td>
+        <td class="text-center">
+          <button
+            type="button"
+            class="btn btn-ghost btn-xs"
+            (click)="showDetails(job)"
+          >
+            Détails
+          </button>
+        </td>
+
+        <td class="text-center">
+          <button
+            class="btn btn-ghost btn-circle"
+            (click)="toggleSauvegarde(job)"
+          >
+            <span
+              class="material-symbols-outlined transition-colors"
+              [ngClass]="job.save ? 'text-green-400' : 'text-white'"
+            >
+              add_task
+            </span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="messageVisible" class="toast toast-top toast-end z-50">
+  <div class="alert bg-green-500 text-white border-0 shadow-lg">
+    <span>{{ toastMessage }}</span>
+  </div>
+</div>

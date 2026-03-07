@@ -1,0 +1,32 @@
+<div class="m-5 max-w-5xl mx-auto">
+  <div class="bg-white/10 backdrop-blur-xl border border-white/10 shadow-xl rounded-2xl p-8 text-white">
+    <div class="flex items-center gap-5 mb-8">
+      <div class="w-16 h-16 bg-white flex items-center justify-center rounded-xl overflow-hidden">
+        <img
+          *ngIf="job.job?.company_logo"
+          [src]="job.job.company_logo"
+          [alt]="job.job.company"
+          class="max-w-full max-h-full object-contain"
+        />
+        <span *ngIf="!job.job?.company_logo" class="text-black/60 text-sm">
+          company_logo
+        </span>
+      </div>
+      <div>
+        <h1 class="text-2xl font-bold">
+          {{ job.job?.title }}
+        </h1>
+        <p class="text-white/80 text-lg">
+          {{ job.job?.company }}
+        </p>
+    </div>
+    <div class="flex justify-between items-center">
+      <a routerLink="/jobs" class="btn btn-ghost">
+        Retour
+      </a>
+      <button class="btn btn-primary">
+        Postuler
+      </button>
+    </div>
+  </div>
+</div>
